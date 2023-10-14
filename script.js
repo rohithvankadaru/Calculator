@@ -7,6 +7,7 @@ Array.from(buttons).forEach((button) => {
     button.addEventListener('click', (event) => {
         if (event.target.innerText == '=') {
             string = eval(string);        //eval() evaluates the input
+            string = string === undefined ? '' : string;
             inputTag.value = string;
         }
         else if (event.target.innerText == 'AC') {
@@ -42,7 +43,6 @@ inputTag.addEventListener('input', (event) => {
 });
 
 document.addEventListener('keypress', event => {
-    console.log(event.key);
     if (event.key === 'Enter') {
         event.preventDefault();
         document.querySelector('.equal-to').click();
